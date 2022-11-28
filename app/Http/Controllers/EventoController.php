@@ -81,7 +81,7 @@ class EventoController extends Controller
    */
   public function edit($codigo_evento)
   {
-    $evento=$this->objEvento->find($codigo_evento);
+    $evento=ModelEvento::find($codigo_evento);
     return view('create',compact('evento'));
   }
 
@@ -95,7 +95,7 @@ class EventoController extends Controller
   public function update(EventoRequest $request, $codigo_evento)
   {
 
-    $this->objEvento->where(['codigo_evento'=>$codigo_evento])->update([
+    ModelEvento::where(['codigo_evento'=>$codigo_evento])->update([
         'nome_evento'=>$request->nome_evento,
         'local_evento'=>$request->local_evento,
         'data_evento'=>$request->data_evento,

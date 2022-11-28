@@ -7,7 +7,6 @@
   <div class="container">
     <div class="row">
         <div class="col-12">
-
             @if(isset($errors) && count($errors)>0)
                 <div class="text-center mt-4 mb-4 p-2 alert-danger">
                     @foreach($errors->all() as $erro)
@@ -17,10 +16,10 @@
             @endif
 
             @if(isset($evento))
-            <form name="formEdit" id="formEdit" method="post" action="{{url('eventos/$evento->codigo_evento')}}">
+            <form name="formEdit" id="formEdit" method="post" action="{{url("eventos/$evento->codigo_evento")}}">
                 @method('PUT')
             @else
-                <form name="formCad" id="formCad" method="post" action="{{url('eventos')}}">
+                <form name="formCad" id="formCad" method="post" action="{{url("eventos")}}">
             @endif
                 @csrf
                 <input class="form-control" type="text" name="nome_evento" id="nome_evento" placeholder="Nome do Evento:" value="{{$evento->nome_evento ?? ''}}" required><br>
